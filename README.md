@@ -23,8 +23,61 @@ public service FooService
 }
 ```
 
-Injects
+Injects with qualifier:
+```java
+public service FooService 
+   implements FooInterface 
+   injects @FooQualifier FooSayer {
+   ...
+}
+```
+
+Override naming convention:
+```java
+public service FooService 
+   implements FooInterface 
+   injects FooSayer as myFooSayer {
+   ...
+}
+```
 
 ## Entity
+
+Banme entities are value classes which are immutable by default. All args constructor, no arg constructor, getters, and fluent interface for building are auto generated.
+
+```java
+public entity Bar {
+   int width;
+   int height;
+}
+
+final Bar bar1 = new Bar(1,1);
+final Bar bar2 = bar1.width(2).height(3);
+final int x = bar1.width;
+final int y = bar2.height;
+assert (x != y);
+assert (bar1 != bar2)
+```
+
+Mutable entity
+```
+public mutable entity Bar {
+   int width;
+   int height;
+}
+
+final Bar bar = new Bar(1,2);
+bar.width = 2;
+assert bar.width == 2
+```
+
+## Anonymous Entity
+
+```java
+var bar = {
+   width: 1,
+   height: 2
+}
+```
 
 # FAQs
