@@ -51,10 +51,10 @@ public entity Bar {
    int height;
 }
 
-final Bar bar1 = new Bar(1,1);
-final Bar bar2 = bar1.width(2).height(3);
-final int x = bar1.width;
-final int y = bar2.height;
+var bar1 = new Bar(1,1);
+var bar2 = bar1.width(2).height(3);
+var x = bar1.width;
+var y = bar2.height;
 assert (x != y);
 assert (bar1 != bar2)
 ```
@@ -66,7 +66,7 @@ public mutable entity Bar {
    int height;
 }
 
-final Bar bar = new Bar(1,2);
+var bar = new Bar(1,2);
 bar.width = 2;
 assert bar.width == 2
 ```
