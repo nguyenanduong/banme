@@ -6,32 +6,24 @@ Banme provides a set of syntactic sugars on top of Java so that help to reduce t
 Service is a final, stateless class which provides a single responsibility or a set of related responsibilities. Service can be injected with dependencies but cannot be inherited. Banme advocates "Composition over Inheritance" hence improve testability. Banme also favors "Convention over Configuration" and "DRY"
 
 ```java
-
 public service FooService 
    implements FooInterface 
    injects FooSayer {
 
-   public void sayFoo() {
+   public void sayHello() {
+       // fooSayer is automatically inferred by naming convention
        fooSayer.say("Hello");
+   }
+   
+   public static void main(String[] args) {
+       // Auto generated constructor for constructor injection
+       FooInterface fooService = new FooService(new FooSayer());
+       fooService.sayHello();
    }
 }
 ```
 
-Java counterpart:
-```java
-public final class FooService implements FooInterface {
-    private final FooSayer fooSayer;
-    
-    @Inject
-    public FooService(final FooSayer fooSayer) {
-        this.fooSayer = fooSayer;
-    }
-
-   public void sayFoo() {
-       fooSayer.say("Hello");
-   }
-}
-```
+Injects
 
 ## Entity
 
