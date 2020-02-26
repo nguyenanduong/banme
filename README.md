@@ -59,7 +59,7 @@ assert (x != y);
 assert (bar1 != bar2)
 ```
 
-Mutable entity
+### Mutable entity
 ```
 public mutable entity Bar {
    int width;
@@ -71,13 +71,19 @@ bar.width = 2;
 assert bar.width == 2
 ```
 
-## Anonymous Entity
+### Anonymous Entity
 
 ```java
 var bar = {
    width: 1,
    height: 2
 }
+```
+
+### Entity Destructuring
+```java
+var bar = new Bar(1,2);
+var { width, height } = bar;
 ```
 
 # FAQs
