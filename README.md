@@ -80,10 +80,25 @@ var bar = {
 }
 ```
 
-### Entity Destructuring
+### Destructuring
 ```java
 var bar = new Bar(1,2);
 var { width, height } = bar;
+```
+
+### Elvis operator
+```java
+public entity Bar {
+    Qux qux;
+}
+
+public entity Qux {
+    String name;
+}
+
+var bar = new Bar(null);
+var name = bar?.qux.name;
+
 ```
 
 # FAQs
