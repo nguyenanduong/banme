@@ -15,6 +15,7 @@ public service FooService
        fooSayer.say("Hello");
    }
 }
+```
 
 Java counterpart:
 ```java
